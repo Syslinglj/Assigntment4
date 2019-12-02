@@ -28,7 +28,7 @@ int FavoritesList::writeToFile(string filename)
 {
 	int i;
 	ofstream outputFile;
-	outputFile.open("c:\\users\\owner\\source\\repos\\favoritesdoc\\list.txt", ios::app);
+	outputFile.open(filename, ios::app);
 	if (!outputFile)
 	{
 		cout << "ERROR --- file could not open." << endl;
@@ -50,7 +50,7 @@ int FavoritesList::writeToFile(string filename)
 int FavoritesList::readFromFile(string filename)
 {
 	ifstream inputFile;
-	inputFile.open("c:\\users\\owner\\source\\repos\\favoritesdoc\\list.txt", ios::in);
+	inputFile.open(filename, ios::in);
 	if (!inputFile)
 	{
 		cout << "ERROR --- file could not open." << endl;
