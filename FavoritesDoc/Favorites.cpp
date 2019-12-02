@@ -21,20 +21,69 @@ Favorites::Favorites(string m, string mo, int y, string c, int cst, int hp)
 	cost = cst;
 	horsepower = hp;
 }
-void Favorites::getFavorites()
+string Favorites::getMake()
 {
-	cout << "Car make? ";
+	return make;
+}
+string Favorites::getModel()
+{
+	return model;
+}
+int Favorites::getYear()
+{
+	return year;
+}
+string Favorites::getColor()
+{
+	return color;
+}
+int Favorites::getCost()
+{
+	return cost;
+}
+int Favorites::getHorsepower()
+{
+	return horsepower;
+}
+void Favorites::setMake(string ma)
+{
+	make = ma;
+}
+void Favorites::setModel(string mo)
+{
+	model = mo;
+}
+void Favorites::setYear(int y)
+{
+	year = y;
+}
+void Favorites::setColor(string c)
+{
+	color = c;
+}
+void Favorites::setCost(int c)
+{
+	cost = c;
+}
+void Favorites::setHorsepower(int h)
+{
+	horsepower = h;
+}
+
+
+
+
+void Favorites::getFavoritesInput()
+{
+	cout << "Enter Car make? ";
 	getline(cin, make);
 	cout << endl;
-	cout << "Car model? ";
+	cout << "Enter Car model? ";
 	getline(cin, model);
 	cout << endl;
-	cout << "Model Year? ";
+	cout << "Enter Model Year? ";
 	cin >> year;
 	cin.ignore();
-	cout << endl;
-	cout << "Car color? ";
-	getline(cin, color);
 	cout << endl;
 	cout << "Car cost? ";
 	cin >> cost;
@@ -44,10 +93,19 @@ void Favorites::getFavorites()
 	cin >> horsepower;
 	cin.ignore();
 	cout << endl;
+	cout << "Car color? ";
+	getline(cin, color, '\n');
+	cout << endl;
 
 }
 
-void Favorites::showFavorites()
+ostream& operator<<(ostream& output, Favorites& i)
+{
+	output << "Favorites: " << i.make << "|" << i.model<< "|" << i.year << endl;
+	output << "Favorites: " << i.cost << "|" << i.horsepower << "|" << i.color << endl;
+	return output;
+}
+/*void Favorites::showFavorites()
 {
 	cout << " Make: " << make;
 	cout << ", Model: " << model;
@@ -55,5 +113,5 @@ void Favorites::showFavorites()
 	cout << ", Cost: " << cost;
 	cout << ", Horsepower: " << horsepower;
 	cout << endl;
-}
+}*/
 

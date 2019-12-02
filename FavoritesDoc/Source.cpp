@@ -1,64 +1,65 @@
 #include <iostream>
 #include "Header.h"
+#include "Favoriteslist.h"
 #include <string>
+#include <fstream>
 using namespace std;
 
 int main()
 {
+	FavoritesList myList;
+
+
 	int nFavorites = 0;
 	char input = 'y';
 	int counter = 0;
 	cout << "Welcome to our favorite car collection database." << endl;
 	cout << "We will first ask how many new favorites you would like to add," << endl;
 	cout << "then you will provide those favorites with details." << endl;
+	cout << "To add favorites type 'A', to show the list type 'S', to save and quit out type Q." << endl;
+	cin >> input;
 	cout << " " << endl;
-
-	Favorites* pFavorites = NULL;
-	pFavorites = new Favorites[100];
+	
 
 	while (input != 'q' && input != 'Q')
 	{
-
-		int inputFavorites = 0;
-
-		//asks how many favorites youd like to add
-		if (input == 'y' || input == 'Y')
+		if (input != 'a' && input != 'A')
 		{
-			cout << "How many favorites would you like to enter?  ";
-			cin >> inputFavorites;
-			cin.ignore();
-			cout << endl;
-			nFavorites += inputFavorites;
-
-			//asks user for favorites input
-			for (counter; counter < nFavorites; counter++)
+			if (input != 's' && input != 'S')
 			{
-				pFavorites[counter].getFavorites();
+				cout << "You entered an incorrect value." << endl;
+				cout << "To add favorites type 'A', to show the list type 'S', to save and quit out type Q." << endl;
+				cin >> input;
 			}
 		}
+		myList.readFromFile("c:\\users\\owner\\source\\repos\\favoritesdoc\\list.txt");
 
-		//asks to list, repeat to add more, or quit program
-		cout << "For a list of favorites type L, to add more favorites type Y, to quit type Q. ";
+			if (input == 'a' || input == 'A')
+			{
+				cout << "How many items would you like to add to the list?" << endl;
+				cin >> counter;
+				for (int i = 0; i < counter; i++)
+				{
+					myList.addFav();
+				}
+				counter = 0;
+			}
+
+			if (input == 's' || input == 'S')
+			{
+				myList.showFav();
+			}
+
+		cout << "To add more favorites type 'A', to show the list type 'S', to save and quit out type Q." << endl;
 		cin >> input;
 		cout << " " << endl;
-		// if d delete
-		// ask for int of fav number, delete number in array +1
-		//lists favorites
-		if (input == 'l' || input == 'L')
-		{
-			for (int k = 0; k < nFavorites; k++)
-			{
-
-				pFavorites[k].showFavorites();
-
-			}
-
-			cout << "To add more favorites type Y, to quite type Q.";
-			cin >> input;
-			cout << " " << endl;
-			system("CLS");
-		}
 	}
-	delete[] pFavorites;
+	myList.writeToFile("c:\\users\\owner\\source\\repos\\favoritesdoc\\list.txt");
+
 	return 0;
+
 }
+
+	
+
+	

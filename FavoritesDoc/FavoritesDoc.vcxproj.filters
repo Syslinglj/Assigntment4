@@ -21,9 +21,15 @@
     <ClCompile Include="Favorites.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FavoritesList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FavoritesList.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
