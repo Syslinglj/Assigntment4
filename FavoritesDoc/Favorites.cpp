@@ -75,6 +75,7 @@ void Favorites::setHorsepower(int h)
 
 void Favorites::getFavoritesInput()
 {
+	
 	cout << "Enter Car make? ";
 	getline(cin, make);
 	cout << endl;

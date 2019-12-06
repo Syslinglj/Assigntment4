@@ -68,7 +68,7 @@ int FavoritesList::readFromFile(string filename)
 	while (!inputFile.eof())
 	{
 		getline(inputFile, ma, '|');
-		if (input.length() >= 1)
+		if (ma.length() >= 1)
 		{
 			getline(inputFile, mo, '|');
 			getline(inputFile, input, '|');

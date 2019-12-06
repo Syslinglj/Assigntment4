@@ -1,1 +1,4 @@
-|laferrari|2015|10000000|780|red|
+honda|fit|2004|4000|150|red|
+honda|civic|1999|2000|100|red|
+honda|fit|1998|5000|150|blue|
+honda|civic|2010|20000|200|grey|

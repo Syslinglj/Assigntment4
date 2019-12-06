@@ -19,20 +19,20 @@ int main()
 	cout << "We will first ask how many new favorites you would like to add," << endl;
 	cout << "then you will provide those favorites with details." << endl;
 	// C:\\Users\\Owner\\source\\repos\\FavoritesDoc\\list.txt
-	cout << "Please enter the file directory location of the file you would like to modify. Must double ""\\"" symbols. " << endl;
+	cout << "Please enter the file directory location of the file you would like to modify. Must double ""\\ symbols. " << endl;
 	cin >> directory;
-	cin.ignore();
 
 	cout << "To add favorites type 'A', to show the list type 'S', to save and quit out type Q." << endl;
 	cin >> input;
 	cin.ignore();
 	cout << " " << endl;
 	
-	myList.readFromFile(directory); 
+	
 
 
 	while (input != 'q' && input != 'Q')
 	{
+		myList.readFromFile(directory);
 		// if entered non-correct char
 		if (input != 'a' && input != 'A')
 		{
@@ -48,6 +48,7 @@ int main()
 			{
 				cout << "How many items would you like to add to the list?" << endl;
 				cin >> counter;
+				cin.ignore();
 				for (int i = 0; i < counter; i++)
 				{
 					myList.addFav();
@@ -65,7 +66,7 @@ int main()
 		cout << " " << endl;
 	}
 	//saves to file
-	myList.writeToFile(directory); // seems to save to the list the first time, but then i had it error out on me.
+	myList.writeToFile(directory);
 
 	return 0;
 
