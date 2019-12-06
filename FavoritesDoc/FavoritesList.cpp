@@ -67,10 +67,9 @@ int FavoritesList::readFromFile(string filename)
 
 	while (!inputFile.eof())
 	{
-		getline(inputFile, input, '|');
+		getline(inputFile, ma, '|');
 		if (input.length() >= 1)
 		{
-			getline(inputFile, ma, '|');
 			getline(inputFile, mo, '|');
 			getline(inputFile, input, '|');
 			y = stoi(input);
@@ -78,7 +77,7 @@ int FavoritesList::readFromFile(string filename)
 			c = stoi(input);
 			getline(inputFile, input, '|');
 			h = stoi(input);
-			getline(inputFile, co, '\n');
+			getline(inputFile, co, '|');
 
 			items[numFavs].setMake(ma);
 			items[numFavs].setModel(mo);

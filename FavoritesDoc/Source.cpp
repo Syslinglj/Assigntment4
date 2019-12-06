@@ -5,7 +5,7 @@
 #include <fstream>
 using namespace std;
 
-int main() //could my error be because of it telling me that i have too much in the stack and it needs to be moved to the heap?
+int main() 
 {
 	FavoritesList myList;
 
@@ -13,15 +13,22 @@ int main() //could my error be because of it telling me that i have too much in 
 	int nFavorites = 0;
 	char input = 'y';
 	int counter = 0;
+	string directory = "";
 	// initial info and question
 	cout << "Welcome to our favorite car collection database." << endl;
 	cout << "We will first ask how many new favorites you would like to add," << endl;
 	cout << "then you will provide those favorites with details." << endl;
+	// C:\\Users\\Owner\\source\\repos\\FavoritesDoc\\list.txt
+	cout << "Please enter the file directory location of the file you would like to modify. Must double ""\\"" symbols. " << endl;
+	cin >> directory;
+	cin.ignore();
+
 	cout << "To add favorites type 'A', to show the list type 'S', to save and quit out type Q." << endl;
 	cin >> input;
+	cin.ignore();
 	cout << " " << endl;
 	
-	myList.readFromFile("c:\\users\\owner\\source\\repos\\favoritesdoc\\list.txt"); // where my error is happening
+	myList.readFromFile(directory); 
 
 
 	while (input != 'q' && input != 'Q')
@@ -58,7 +65,7 @@ int main() //could my error be because of it telling me that i have too much in 
 		cout << " " << endl;
 	}
 	//saves to file
-	myList.writeToFile("c:\\users\\owner\\source\\repos\\favoritesdoc\\list.txt"); // seems to save to the list the first time, but then i had it error out on me.
+	myList.writeToFile(directory); // seems to save to the list the first time, but then i had it error out on me.
 
 	return 0;
 

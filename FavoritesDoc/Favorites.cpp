@@ -101,8 +101,7 @@ void Favorites::getFavoritesInput()
 
 ostream& operator<<(ostream& output, Favorites& i)
 {
-	output << "Favorites: " << i.make << "|" << i.model<< "|" << i.year << endl;
-	output << "Favorites: " << i.cost << "|" << i.horsepower << "|" << i.color << endl;
+	output << "Favorites: " << i.make << "|" << i.model<< "|" << i.year << "|" << i.cost << "|" << i.horsepower << "|" << i.color << endl;
 	return output;
 }
 /*void Favorites::showFavorites()
